@@ -1,6 +1,12 @@
+"use client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+
+import { ArrowRight } from "react-bootstrap-icons";
 
 const HomePage = () => {
+  const router = useRouter();
+
   return (
     <>
       <div
@@ -28,26 +34,83 @@ const HomePage = () => {
               " linear-gradient(90deg, rgba(255,255,255,0.7917542016806722) 0%, rgba(255,255,255,0.500437675070028) 17%, rgba(0,212,255,0) 50%)",
           }}
         ></div>
-        <div className="position-absolute right-4 bg-white bg-opacity-75 bottom-0 end-0 text-black">
-          <div className="col-md-6 px-0">
-            <div>SEASON 2022</div>
-            <h1 className="">Επικοινώνησε μαζί μας</h1>
-            <button className="">Συμπλήρωσε τη φόρμα {`->`}</button>
+        <div
+          className="position-absolute right-4 bg-white bg-opacity-75 p-4 text-black"
+          style={{ bottom: "4rem", right: "4rem", width: "45%" }}
+        >
+          <div className="col-md-12 px-0">
+            <div className="col">SEASON 2022</div>
+            <h1 className="col py-4 fw-medium">Επικοινώνησε μαζί μας!</h1>
+            <button
+              type="submit"
+              className="btn bg-black text-white p-3 px-5 position-relative"
+              style={{
+                borderTopRightRadius: "20px",
+                borderBottomLeftRadius: "20px",
+                zIndex: 10,
+              }}
+              onClick={() => router.push("/form")}
+            >
+              Συμπλήρωσε τη φόρμα <ArrowRight />
+            </button>
           </div>
         </div>
       </div>
       <div className="jumbotron text-black bg-white" style={{ height: "80vh" }}>
-        <div className="container" style={{ maxWidth: "100vw" }}>
-          <div className="row">
-            <div className="col">
-              <h1>gallery</h1>
-              <div className="row">
-                <div className="col">1 gallery</div>
-                <div className="col">2 gallery</div>
+        <div className="container h-100" style={{ maxWidth: "100vw" }}>
+          <div className="row h-100">
+            <div className="col text-center m-auto">
+              <h4 className="text-decoration-underline">PHOTO GALLERY</h4>
+              <div className="row pt-5">
+                <div className="col">
+                  <Image width={400} height={500} src="/assets/gallery1.png" />
+                </div>
+                <div className="col">
+                  <Image width={400} height={500} src="/assets/gallery2.png" />
+                </div>
               </div>
             </div>
-            <div className="col">
-              <Image width={800} height={800} src="/assets/middle.png" />
+            <div className="col px-0">
+              <div
+                className="h-100 position-relative"
+                style={{
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  alignSelf: "flex-end",
+                  alignContent: "flex-end",
+                  alignItems: "center",
+                }}
+              >
+                <div className="position-relative">
+                  <Image width={800} height={800} src="/assets/middle.png" />
+                  <div
+                    style={{
+                      position: "absolute",
+                      bottom: "4rem",
+                      left: 0,
+                      right: 0,
+                      margin: "auto",
+                      display: "flex",
+                      alignContent: "center",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      justifySelf: "center",
+                    }}
+                  >
+                    <button
+                      type="submit"
+                      className="btn bg-white text-black p-3 px-5"
+                      style={{
+                        borderTopRightRadius: "20px",
+                        borderBottomLeftRadius: "20px",
+                      }}
+                      onClick={() => router.push("/form")}
+                    >
+                      Συμπλήρωσε τη φόρμα <ArrowRight />
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
